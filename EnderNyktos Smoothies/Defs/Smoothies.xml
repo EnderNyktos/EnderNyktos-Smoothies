@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+        <!-- Warm Milk -->
+    <ThingDef ParentName="ResourceBase">
+        <defName>WarmMilk</defName>
+        <label>Warm Milk</label>
+        <description>One warm beverage helps to better rest.</description>
+
+        <graphicData>
+            <texPath>Smoothies/WarmMilk</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(0.75,0.75)</drawSize>
+        </graphicData>
+
+        <statBases>
+            <MaxHitPoints>60</MaxHitPoints>
+            <Flammability>0.2</Flammability>
+            <DeteriorationRate>0.5</DeteriorationRate>
+            <MarketValue>16.2</MarketValue>
+            <Mass>0.18</Mass>
+            <Nutrition>0.4</Nutrition>
+        </statBases>
+
+        <ingestible>
+            <foodType>Fluid</foodType>
+            <preferability>RawTasty</preferability>
+            <ingestSound>Ingest_Beer</ingestSound>
+            <drugCategory>Social</drugCategory>
+            <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
+			<defaultNumToIngestAtOnce>1</defaultNumToIngestAtOnce>
+            <outcomeDoers>
+                <li Class="IngestionOutcomeDoer_GiveHediff">
+                    <hediffDef>WarmedByMilk</hediffDef>
+                    <severity>1.0</severity>
+                </li>
+            </outcomeDoers>
+        </ingestible>
+
+        <comps>
+            <li Class="CompProperties_Rottable">
+                <daysToRotStart>5</daysToRotStart>
+                <rotDestroys>true</rotDestroys>
+            </li>
+            <li Class="CompProperties_Drug">
+                <listOrder>13</listOrder>
+            </li>
+        </comps>
+ 
+		<thingCategories>
+			<li>FoodMeals</li>
+		</thingCategories>
+		<alwaysHaulable>true</alwaysHaulable> 
+        <tickerType>Normal</tickerType>
+        <socialPropernessMatters>true</socialPropernessMatters>
+        <tradeability>Buyable</tradeability>
+        <stackLimit>20</stackLimit>
+    </ThingDef>
+
+    <HediffDef>
+        <defName>WarmedByMilk</defName>
+        <hediffClass>HediffWithComps</hediffClass>
+        <label>Warm milk effect</label>
+        <description>Helps for better rest.</description>
+        <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+        <scenarioCanAdd>true</scenarioCanAdd>
+        <isBad>false</isBad>
+        <maxSeverity>2.0</maxSeverity>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>-2.0</severityPerDay>
+                <showHoursToRecover>true</showHoursToRecover>
+            </li>
+        </comps>
+        <stages>
+            <li>
+                <label>Relaxed</label>
+                <statFactors>
+                    <RestRateMultiplier>0.3</RestRateMultiplier>
+                </statFactors>
+            </li>
+        </stages>
+    </HediffDef>
+
+
+        <!-- WarmMilk Recipe-->
+    <RecipeDef>
+        <defName>MakeWarmMilk</defName>
+        <label>Make warm milk</label>
+        <description>Make 1 warm milk</description>
+        <jobString>Making warm milk</jobString>
+        <workSpeedStat>CookSpeed</workSpeedStat>
+        <effectWorking>Cook</effectWorking>
+        <soundWorking>Recipe_CookMeal</soundWorking>
+        <workAmount>200</workAmount>
+        <targetCountAdjustment>1</targetCountAdjustment>
+        <workSkill>Cooking</workSkill>
+        <skillRequirements>
+            <Cooking>5</Cooking>
+        </skillRequirements>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Milk</li>
+                    </thingDefs>                    
+                </filter>
+                <count>8</count>
+            </li>
+        </ingredients>
+        <products>
+            <WarmMilk>1</WarmMilk>
+        </products>
+        <recipeUsers>
+            <li>Campfire</li>
+            <li>ElectricStove</li>
+            <li>FueledStove</li>
+        </recipeUsers>
+    </RecipeDef>
+
+        <!-- WarmMilk Bulk recipe -->
+    <RecipeDef>
+        <defName>MakeBulkWarmMilk</defName>
+        <label>Make warm milk x4</label>
+        <description>Make 4 warm milk</description>
+        <jobString>Making warm milk</jobString>
+        <workSpeedStat>CookSpeed</workSpeedStat>
+        <effectWorking>Cook</effectWorking>
+        <soundWorking>Recipe_CookMeal</soundWorking>
+        <workAmount>750</workAmount>
+        <targetCountAdjustment>1</targetCountAdjustment>
+        <workSkill>Cooking</workSkill>
+        <skillRequirements>
+            <Cooking>5</Cooking>
+        </skillRequirements>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Milk</li>
+                    </thingDefs>                    
+                </filter>
+                <count>32</count>
+            </li>
+        </ingredients>
+        <products>
+            <WarmMilk>6</WarmMilk>
+        </products>
+        <recipeUsers>
+            <li>Campfire</li>
+            <li>ElectricStove</li>
+            <li>FueledStove</li>
+        </recipeUsers>
+    </RecipeDef>
+
+        <!-- Chocomilk smoothie -->
+    <ThingDef ParentName="ResourceBase">
+        <defName>Chocomilk</defName>
+        <label>Chocomilk Smoothie</label>
+        <description>A delightful recreational beverage.</description>
+
+        <graphicData>
+            <texPath>Smoothies/Chocomilk</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(0.75,0.75)</drawSize>
+        </graphicData>
+
+        <statBases>
+            <MaxHitPoints>60</MaxHitPoints>
+            <Flammability>0.2</Flammability>
+            <DeteriorationRate>0.5</DeteriorationRate>
+            <MarketValue>29.2</MarketValue>
+            <Mass>0.48</Mass>
+            <Nutrition>0.8</Nutrition>
+        </statBases>
+
+        <ingestible>
+            <foodType>Fluid</foodType>
+            <joy>0.80</joy>
+            <joyKind>Gluttonous</joyKind>
+            <preferability>DesperateOnly</preferability>
+            <ingestSound>Ingest_Beer</ingestSound>
+            <drugCategory>Social</drugCategory>
+            <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
+			<defaultNumToIngestAtOnce>1</defaultNumToIngestAtOnce>
+        </ingestible>
+
+        <comps>
+            <li Class="CompProperties_Rottable">
+                <daysToRotStart>5</daysToRotStart>
+                <rotDestroys>true</rotDestroys>
+            </li>
+            <li Class="CompProperties_Drug">
+                <listOrder>13</listOrder>
+            </li>
+        </comps>
+		
+		<thingCategories>
+			<li>FoodMeals</li>
+		</thingCategories>
+		<alwaysHaulable>true</alwaysHaulable>
+        <tickerType>Normal</tickerType>
+        <socialPropernessMatters>true</socialPropernessMatters>
+        <tradeability>Buyable</tradeability>
+        <stackLimit>20</stackLimit>
+    </ThingDef>
+
+        <!-- Chocomilk Recipe-->
+    <RecipeDef>
+        <defName>MakeChocomilk</defName>
+        <label>Make chocomilk smoothie</label>
+        <description>Make 1 chocomilk smoothie</description>
+        <jobString>Making chocomilk smoothie</jobString>
+        <workSpeedStat>CookSpeed</workSpeedStat>
+        <effectWorking>Cook</effectWorking>
+        <soundWorking>Recipe_CookMeal</soundWorking>
+        <workAmount>250</workAmount>
+        <targetCountAdjustment>1</targetCountAdjustment>
+        <workSkill>Cooking</workSkill>
+        <skillRequirements>
+            <Cooking>4</Cooking>
+        </skillRequirements>
+        <researchPrerequisite>Cocoa</researchPrerequisite>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Milk</li>
+                    </thingDefs>                    
+                </filter>
+                <count>8</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Chocolate</li>
+                    </thingDefs>                    
+                </filter>
+                <count>4</count>
+            </li>
+        </ingredients>
+        <products>
+            <Chocomilk>1</Chocomilk>
+        </products>
+        <recipeUsers>
+            <li>Campfire</li>
+            <li>ElectricStove</li>
+            <li>FueledStove</li>
+        </recipeUsers>
+    </RecipeDef>
+
+        <!-- Chocomilk Bulk recipe -->
+    <RecipeDef>
+        <defName>MakeBulkChocomilk</defName>
+        <label>Make chocomilk smoothie x4</label>
+        <description>Make 4 chocomilk smothies</description>
+        <jobString>Making chocomilk smoothie</jobString>
+        <workSpeedStat>CookSpeed</workSpeedStat>
+        <effectWorking>Cook</effectWorking>
+        <soundWorking>Recipe_CookMeal</soundWorking>
+        <workAmount>950</workAmount>
+        <targetCountAdjustment>1</targetCountAdjustment>
+        <workSkill>Cooking</workSkill>
+        <skillRequirements>
+            <Cooking>4</Cooking>
+        </skillRequirements>
+        <researchPrerequisite>Cocoa</researchPrerequisite>
+         <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Milk</li>
+                    </thingDefs>                    
+                </filter>
+                <count>32</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Chocolate</li>
+                    </thingDefs>                    
+                </filter>
+                <count>16</count>
+            </li>
+        </ingredients>
+        <products>
+            <Chocomilk>5</Chocomilk>
+        </products>
+        <recipeUsers>
+            <li>Campfire</li>
+            <li>ElectricStove</li>
+            <li>FueledStove</li>
+        </recipeUsers>
+    </RecipeDef>
+
+        <!-- Berries smoothie -->
+    <ThingDef ParentName="ResourceBase">
+        <defName>Berrymilk</defName>
+        <label>Berries smoothie</label>
+        <description>A delightful beverage is the favorite of the Glitterworld's elite.</description>
+
+        <graphicData>
+            <texPath>Smoothies/Berrymilk</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(0.75,0.75)</drawSize>
+        </graphicData>
+
+        <statBases>
+            <MaxHitPoints>60</MaxHitPoints>
+            <Flammability>0.2</Flammability>
+            <DeteriorationRate>0.5</DeteriorationRate>
+            <MarketValue>35.4</MarketValue>
+            <Mass>0.8</Mass>
+            <Nutrition>1.2</Nutrition>
+        </statBases>
+
+        <ingestible>
+            <foodType>Fluid</foodType>
+            <preferability>RawTasty</preferability>
+            <tasteThought>AteLavishMeal</tasteThought>
+            <ingestSound>Ingest_Beer</ingestSound>
+            <drugCategory>Social</drugCategory>
+            <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
+			<defaultNumToIngestAtOnce>1</defaultNumToIngestAtOnce>
+        </ingestible>
+
+        <comps>
+            <li Class="CompProperties_Rottable">
+                <daysToRotStart>5</daysToRotStart>
+                <rotDestroys>true</rotDestroys>
+            </li>
+            <li Class="CompProperties_Drug">
+                <listOrder>13</listOrder>
+            </li>
+        </comps>
+
+		<thingCategories>
+			<li>FoodMeals</li>
+		</thingCategories>
+		<alwaysHaulable>true</alwaysHaulable>        
+        <tickerType>Normal</tickerType>
+        <socialPropernessMatters>true</socialPropernessMatters>
+        <tradeability>Buyable</tradeability>
+        <stackLimit>20</stackLimit>
+    </ThingDef>
+
+        <!-- Berrymilk Recipe-->
+    <RecipeDef>
+        <defName>MakeBerrymilk</defName>
+        <label>Make berries smoothie</label>
+        <description>Make 1 berries smoothie</description>
+        <jobString>Making berries smoothie</jobString>
+        <workSpeedStat>CookSpeed</workSpeedStat>
+        <effectWorking>Cook</effectWorking>
+        <soundWorking>Recipe_CookMeal</soundWorking>
+        <workAmount>150</workAmount>
+        <targetCountAdjustment>1</targetCountAdjustment>
+        <workSkill>Cooking</workSkill>
+        <skillRequirements>
+            <Cooking>3</Cooking>
+        </skillRequirements>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Milk</li>
+                    </thingDefs>                    
+                </filter>
+                <count>8</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>RawBerries</li>
+                    </thingDefs>                    
+                </filter>
+                <count>16</count>
+            </li>
+        </ingredients>
+        <products>
+            <Berrymilk>1</Berrymilk>
+        </products>
+        <recipeUsers>
+            <li>Campfire</li>
+            <li>ElectricStove</li>
+            <li>FueledStove</li>
+        </recipeUsers>
+    </RecipeDef>
+
+        <!-- Berrymilk Bulk recipe -->
+    <RecipeDef>
+        <defName>MakeBulkBerrymilk</defName>
+        <label>Make berries smoothie x4</label>
+        <description>Make 4 berries smothies</description>
+        <jobString>Making berries smoothie</jobString>
+        <workSpeedStat>CookSpeed</workSpeedStat>
+        <effectWorking>Cook</effectWorking>
+        <soundWorking>Recipe_CookMeal</soundWorking>
+        <workAmount>550</workAmount>
+        <targetCountAdjustment>1</targetCountAdjustment>
+        <workSkill>Cooking</workSkill>
+        <skillRequirements>
+            <Cooking>4</Cooking>
+        </skillRequirements>
+         <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Milk</li>
+                    </thingDefs>                    
+                </filter>
+                <count>32</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>RawBerries</li>
+                    </thingDefs>                    
+                </filter>
+                <count>64</count>
+            </li>
+        </ingredients>
+        <products>
+            <Berrymilk>4</Berrymilk>
+        </products>
+        <recipeUsers>
+            <li>Campfire</li>
+            <li>ElectricStove</li>
+            <li>FueledStove</li>
+        </recipeUsers>
+    </RecipeDef>
+
+            <!-- Ambrosia Smoothie -->
+    <ThingDef ParentName="DrugBase">
+        <defName>AmbrosiaMilk</defName>
+        <label>Ambrosia smoothie</label>
+        <description>The ambrosia-infused elixir has been diluted to enhance enjoyment while reducing its effects.</description>
+        <descriptionHyperlinks>
+            <HediffDef>AmbrosiaHigh</HediffDef>
+            <HediffDef>AmbrosiaTolerance</HediffDef>
+            <HediffDef>AmbrosiaAddiction</HediffDef>
+        </descriptionHyperlinks>
+
+        <graphicData>
+            <texPath>Smoothies/AmbrosiaMilk</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(0.55,0.55)</drawSize>
+        </graphicData>
+
+        <statBases>
+            <MaxHitPoints>40</MaxHitPoints>
+            <Flammability>0.2</Flammability>
+            <DeteriorationRate>0.5</DeteriorationRate>
+            <MarketValue>18.8</MarketValue>
+            <Mass>0.19</Mass>
+            <Nutrition>0.3</Nutrition>
+        </statBases>
+
+        <ingestible>
+            <foodType>Fluid</foodType>
+            <preferability>DesperateOnly</preferability>
+            <ingestSound>Ingest_Beer</ingestSound>
+            <drugCategory>Social</drugCategory>
+            <joyKind>Chemical</joyKind>
+            <joy>0.3</joy>
+            <nurseable>true</nurseable>
+            <canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
+            <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
+			<defaultNumToIngestAtOnce>1</defaultNumToIngestAtOnce>
+            <outcomeDoers>
+                <li Class="IngestionOutcomeDoer_GiveHediff">
+                    <hediffDef>AmbrosiaHigh</hediffDef>
+                    <severity>0.35</severity>
+                </li>
+                <li Class="IngestionOutcomeDoer_GiveHediff">
+                    <hediffDef>AmbrosiaTolerance</hediffDef>
+                    <toleranceChemical>Ambrosia</toleranceChemical>
+                    <severity>0.022</severity>
+                    <divideByBodySize>true</divideByBodySize>
+                    <multiplyByGeneToleranceFactors>true</multiplyByGeneToleranceFactors>
+                </li>
+            </outcomeDoers>
+        </ingestible>
+
+        <comps>
+            <li Class="CompProperties_Rottable">
+                <daysToRotStart>15</daysToRotStart>
+                <rotDestroys>true</rotDestroys>
+            </li>
+            <li Class="CompProperties_Drug">
+                <listOrder>30</listOrder>
+            </li>
+        </comps>
+ 
+		<alwaysHaulable>true</alwaysHaulable> 
+        <tickerType>Rare</tickerType>
+        <socialPropernessMatters>true</socialPropernessMatters>
+        <tradeability>Sellable</tradeability>
+        <stackLimit>20</stackLimit>
+    </ThingDef>
+
+
+        <!-- Ambrosia Smoothie Recipe-->
+    <RecipeDef>
+        <defName>MakeAmbrosiaMilk</defName>
+        <label>Make ambrosia smoothie x2</label>
+        <description>Make 2 ambrosia smoothie</description>
+        <jobString>Making ambrosia smoothie</jobString>
+        <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+        <effectWorking>Cook</effectWorking>
+        <soundWorking>Recipe_CookMeal</soundWorking>
+        <workAmount>100</workAmount>
+        <targetCountAdjustment>1</targetCountAdjustment>
+        <workSkill>Cooking</workSkill>
+        <skillRequirements>
+            <Cooking>5</Cooking>
+        </skillRequirements>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Ambrosia</li>
+                    </thingDefs>                    
+                </filter>
+                <count>1</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Milk</li>
+                    </thingDefs>                    
+                </filter>
+                <count>4</count>
+            </li>
+        </ingredients>
+        <products>
+            <AmbrosiaMilk>2</AmbrosiaMilk>
+        </products>
+        <recipeUsers>
+            <li>Campfire</li>
+            <li>ElectricStove</li>
+            <li>FueledStove</li>
+        </recipeUsers>
+    </RecipeDef>
+
+        <!-- Ambrosia Smoothie Bulk recipe -->
+    <RecipeDef>
+        <defName>MakeBulkAmbrosiaMilk</defName>
+        <label>Make ambrosia smoothie x8</label>
+        <description>Make 8 ambrosia smoothie</description>
+        <jobString>Making ambrosia smoothie</jobString>
+        <workSpeedStat>CookSpeed</workSpeedStat>
+        <effectWorking>Cook</effectWorking>
+        <soundWorking>Recipe_CookMeal</soundWorking>
+        <workAmount>375</workAmount>
+        <targetCountAdjustment>1</targetCountAdjustment>
+        <workSkill>Cooking</workSkill>
+        <skillRequirements>
+            <Cooking>6</Cooking>
+        </skillRequirements>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Milk</li>
+                    </thingDefs>                    
+                </filter>
+                <count>8</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Ambrosia</li>
+                    </thingDefs>                    
+                </filter>
+                <count>4</count>
+            </li>
+        </ingredients>
+        <products>
+            <AmbrosiaMilk>8</AmbrosiaMilk>
+        </products>
+        <recipeUsers>
+            <li>Campfire</li>
+            <li>ElectricStove</li>
+            <li>FueledStove</li>
+        </recipeUsers>
+    </RecipeDef>
+</Defs>

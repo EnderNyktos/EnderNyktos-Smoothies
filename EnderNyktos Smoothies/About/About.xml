@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+    <name>Smoothies</name>
+    <author>EnderNyktos</author>
+    <supportedVersions>
+        <li>1.4</li>
+        <li>1.5</li>
+    </supportedVersions>
+    <packageId>EnderNyktos.Smoothies</packageId>
+	
+	<description>
+Welcome,
+
+This mod adds three beverages, that can be made in early game. The principal use of this mod is milk, so you need some cows.
+It takes one point more on cooking skill to make the bulk recipes.
+
+[h3]Warm milk[/h3]
+
+Take it before sleep, it will boost your sleep rate by 30% (similar to "quick sleeper" trait which is 50%).
+
+[h3]Chocomilk smoothie[/h3]
+
+Similar behaviour to the vanilla Chocolate, using 4 chocolates you gain recreation by 40%. Drinking one Chocomilk smoothie will fulfill recreation by 80%.
+
+[h3]Berries smoothie[/h3]
+
+It's a recipe's delicacy from glitterworld. It has a very high nutritive valor and count as Lavish meal boosting your colonist mood.
+
+	</description>
+</ModMetaData>
